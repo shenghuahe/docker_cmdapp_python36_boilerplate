@@ -1,19 +1,15 @@
 FROM ubuntu:16.04
 
-RUN apt-get update
-RUN apt-get install software-properties-common python-software-properties -y
-
-RUN apt-get install wget curl -y
-
-RUN add-apt-repository ppa:jonathonf/python-3.6
-RUN apt-get update
-RUN apt-get install python3.6 -y
-RUN apt-get install python3-pip -y
-RUN python3.6 -m pip install --upgrade pip
-
-RUN apt-get install vim -y
-
-RUN useradd -ms /bin/bash appuser
+RUN apt-get update \
+    && apt-get install software-properties-common python-software-properties -y \
+    && apt-get install wget curl -y \
+    && apt-get install vim -y \
+    && add-apt-repository ppa:jonathonf/python-3.6 \
+    && apt-get update \
+    && apt-get install python3.6 -y \
+    && apt-get install python3-pip -y \
+    && python3.6 -m pip install --upgrade pip \
+    && useradd -ms /bin/bash appuser
 
 USER appuser
 
