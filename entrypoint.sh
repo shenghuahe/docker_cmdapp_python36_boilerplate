@@ -8,7 +8,7 @@ echo "Starting..."
 INTERVAL=$1
 COUNTER=0
 while true; do
-	if (( COUNTER == $INTERVAL )); then
+	if (( COUNTER % INTERVAL == 0 )); then
 		COUNTER=0
 		# Run something every $INTERVAL seconds
 		python3.6 main.py
